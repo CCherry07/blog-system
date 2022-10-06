@@ -13,13 +13,20 @@ const connects = mysql.createPool({
   user: MYSQL_USER,
   password: MYSQL_PASSWORD,
 });
+//数据库链接成功？
+
 connects.getConnection((err, conn) => {
-  conn.connect((err) => {
+  if (err instanceof Error) {
+    throw err
+  }else{
+    conn.connect(err => {
     if (err) {
       console.log("数据库链接失败", err);
+      throw err
     } else {
-      console.log("数据库链接成功");
+      console.log("数据库已链接成功");
     }
   });
+  }
 });
 module.exports = connects;

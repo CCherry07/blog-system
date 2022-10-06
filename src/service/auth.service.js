@@ -8,7 +8,6 @@ class AuthService {
       const [res] = await connection
         .promise()
         .execute(statement, [momentId, userId]);
-      console.log("permissionControl");
       return res.length > 0 ? true : false;
     } catch (err) {
       throw err;

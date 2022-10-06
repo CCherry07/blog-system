@@ -160,7 +160,7 @@ class MomentController {
   }
   
   async momentLike(ctx, next) {
-    const { id: userId } = ctx.user;
+    const { id: userId } = ctx.user;å
     const { momentId } = ctx.params;
     const res = await momentService.createLikeAndCollect(
       momentId,
